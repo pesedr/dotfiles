@@ -118,3 +118,5 @@ noremap <silent> ,u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<C
 
 " Pathogen, to install plugins and rutnime files in their own private directories
 execute pathogen#infect()
+syntax on 
+filetype plugin indent on
