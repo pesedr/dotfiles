@@ -33,10 +33,16 @@ set laststatus=2
 set encoding=utf-8
 set hidden
 
-
 " Remember stuff
 set history=256
 set undolevels=512
+" Last postion
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -59,7 +65,7 @@ if has('langmap') && exists('+langnoremap')
 endif
 
 " Pathogen, to install plugins and rutnime files in their own private directories
-execute pathogen#infect()
+" execute pathogen#infect()
 """"""""""""""""""""""""""""""
 " PACKAGES
 """"""""""""""""""""""""""""""
@@ -108,6 +114,9 @@ Plug 'tpope/vim-haml'
 Plug 'dahu/vim-asciidoc'
 Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go'
+Plug 'vim-jp/vim-go-extra'
+" Plug 'dgryski/vim-godef'
+Plug 'nsf/gocode'
 
 " Colorschemes
 Plug 'Heldraug/vim-megara'
@@ -154,6 +163,9 @@ nmap <Leader><Space> :nohl<cr>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
+
+" Autocompletion 
+imap <Tab> <C-x><C-o>
 
 """"""""""""""""
 " Plugin Keymaps
@@ -259,6 +271,13 @@ func! DeleteTrailingWS()
 	%s/\s\+$//ge
 	exe "normal" `z"
 endfunc
+
+" Auto fmt Go files
+autocmd FileType go autocmd BufWritePre <buffer> :GoImports
+autocmd FileType go autocmd BufWritePre <buffer> :GoVet
+autocmd FileType go autocmd BufWritePre <buffer> :GoLint
+autocmd FileType go autocmd BufWritePre <buffer> :GoBuild
+autocmd FileType go autocmd BufWritePre <buffer> :GoTest
 
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
