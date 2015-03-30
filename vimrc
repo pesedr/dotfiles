@@ -251,7 +251,7 @@ set smartindent
 set wrap
 
 """"""""""""""""""""""""""""""
-" AUTOCOMDS AND LANG SPECIFIC 
+" AUTOCOMMANDS AND LANG SPECIFIC 
 """"""""""""""""""""""""""""""
 autocmd!
 
@@ -313,7 +313,7 @@ let g:ctrlp_open_multiple_files = 'i'
 """""""""""""""""
 " Rainbow Parenth
 """""""""""""""""
-au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
