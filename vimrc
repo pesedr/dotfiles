@@ -87,7 +87,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Completion
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'mattn/emmet-vim'
 
 " autoclose brackets, parenth, etc
@@ -141,12 +141,17 @@ imap jk <ESC>
 " Paste from the clipboard without indenting
 set pastetoggle=<leader>p
 
-" Navigation Keymaps
 " Power navigation, by Andrew Radev
 nmap J 5j
 nmap K 5k
 xmap J 5j
 xmap K 5k
+
+" Navigate between split windows
+map <C-J> <C-W>j<C-W>
+map <C-K> <C-W>k<C-W>
+map <C-H> <C-W>h<C-W>
+map <C-L> <C-W>l<C-W>
 
 " Buffer keymaps
 map <Leader>bn :bnext<cr>
@@ -165,7 +170,7 @@ nmap <Leader><Space> :nohl<cr>
 inoremap <C-U> <C-G>u<C-U>
 
 " Autocompletion 
-imap <Tab> <C-x><C-o>
+" imap <Tab> <C-x><C-o>
 
 """"""""""""""""
 " Plugin Keymaps
@@ -275,9 +280,9 @@ endfunc
 " Auto fmt Go files
 autocmd FileType go autocmd BufWritePre <buffer> :GoImports
 autocmd FileType go autocmd BufWritePre <buffer> :GoVet
-autocmd FileType go autocmd BufWritePre <buffer> :GoLint
+" autocmd FileType go autocmd BufWritePre <buffer> :GoLint
 autocmd FileType go autocmd BufWritePre <buffer> :GoBuild
-autocmd FileType go autocmd BufWritePre <buffer> :GoTest
+" autocmd FileType go autocmd BufWritePre <buffer> :GoTest
 
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
