@@ -14,11 +14,7 @@
 " 	Helpers
 " 	Plugin configuration
 "
-" References:
-" 	Gerardo Galindez vimrc
-" 	[http://github.com/Heldraug/Dot-Files/blob/master/vimrc]
-" 	Gary Berhardt
-" 	[https://github.com/garybernhardt/dotfiles/blob/master/.vimrc]
+
 
 """"""""""""""""""""""""""""""
 " GENERAL
